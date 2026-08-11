@@ -57,3 +57,13 @@ export const generateResumePdf = async ({ interviewReportId }) => {
 
     return response.data
 }
+
+/**
+ * @description Service to generate cover letter pdf based on user self description, resume content and job description.
+ */
+export const generateCoverLetterPdf = async ({ interviewReportId }) => {
+    const response = await api.post(`/api/interview/cover-letter/pdf/${interviewReportId}`, null, {
+        responseType: "blob"
+    })
+    return response.data
+}
